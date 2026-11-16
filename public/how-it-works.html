@@ -67,7 +67,7 @@
       <header class="page-header">
         <h1>How Tiny Robot Works</h1>
         <p class="page-lead">
-          Tiny Agent Lab is the current project within Tiny Robot Lab. For capability-routed work, it assesses the task, checks for a capable ready agent, and dispatches to the agent's advertised target. Research and inference add their own evaluation and fallback stages.
+          Tiny Agent Lab is the current project within Tiny Robot Lab. A capability-routed task leaves a visible trail: the orchestrator assesses the required capability, selects an eligible agent, and dispatches to its advertised target. Research and inference add their own evaluation and fallback stages.
         </p>
       </header>
 
@@ -151,7 +151,7 @@
           <li>
             <div>
               <h3>Evidence evaluation</h3>
-              <p>The evaluator filters invalid or duplicate URLs, promotional material, and short snippets. It ranks the remaining items using domain authority, query-keyword relevance, cross-domain keyword overlap, provider score, and explicit publication-date recency.</p>
+              <p>The evaluator filters invalid or duplicate URLs, promotional material, and short snippets. It then ranks the remaining items using testable heuristics: domain authority, query-keyword relevance, cross-domain keyword overlap, provider score, and explicit publication-date recency.</p>
             </div>
           </li>
           <li>
@@ -245,7 +245,7 @@
         <div class="section-header">
           <h2 class="section-title">4. Observable AI in Practice</h2>
           <p class="section-lead">
-            Routing records, task results, and operational events expose concrete parts of each run.
+            Routing records, task results, and operational events expose parts of each run. They reduce the need to guess about decisions and failures, though event delivery is best-effort.
           </p>
         </div>
 
