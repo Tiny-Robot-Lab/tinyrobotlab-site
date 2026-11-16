@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1884 810" width="1884" height="810" role="img" aria-labelledby="title description">
+  <title id="title">One research task: retrieval, synthesis and result</title>
+  <desc id="description">The released Research Agent consumes a task, publishes working, runs one instance-configured executor, passes its output and the question to inference, saves the result and publishes idle on success. Direct Tavily and fixed Tavily MCP use shared evidence heuristics; the stub does not search. Inference fallback and failure handling are separate from retrieval and generic tool governance.</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .title { font-size: 24px; font-weight: 700; }
+      .subtitle { font-size: 15px; fill: #475569; }
+      .label { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; fill: #475569; }
+      .heading { font-size: 16px; font-weight: 700; }
+      .body { font-size: 14px; fill: #334155; }
+      .mono { font-family: "SFMono-Regular", Consolas, monospace; font-size: 12px; fill: #475569; }
+      .number { font-size: 14px; font-weight: 700; fill: #ffffff; }
+      .note { font-size: 14px; fill: #334155; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 Z" fill="#475569"/>
+    </marker>
+    <marker id="support-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 Z" fill="#64748b"/>
+    </marker>
+    <marker id="error-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 Z" fill="#be123c"/>
+    </marker>
+  </defs>
+  <rect width="1884" height="810" fill="#ffffff"/>
+  <text x="32" y="42" class="title">One research task: retrieval, synthesis &amp; result</text>
+  <text x="32" y="68" class="subtitle">Tiny Agent Lab v0.5.0  ·  Normal Research Agent composition  ·  Successful path</text>
+  <text x="1852" y="42" class="mono" text-anchor="end">RELEASE c8e6a57</text>
+
+  <g id="executor-configuration">
+    <rect x="32" y="100" width="870" height="155" rx="6" fill="#fffbeb" stroke="#d97706"/>
+    <text x="50" y="123" class="label" style="fill:#b45309">CONFIGURATION TIME  /  SELECT ONE EXECUTOR FOR THE AGENT INSTANCE</text>
+    <rect x="50" y="140" width="250" height="96" rx="6" fill="#ffffff" stroke="#f59e0b"/>
+    <text x="66" y="163" class="heading">Stub</text>
+    <text x="66" y="186" class="body">Deterministic output;</text>
+    <text x="66" y="206" class="body">no external search.</text>
+    <rect x="314" y="140" width="250" height="96" rx="6" fill="#ffffff" stroke="#f59e0b"/>
+    <text x="330" y="163" class="heading">Direct Tavily</text>
+    <text x="330" y="186" class="body">Search via Tavily API;</text>
+    <text x="330" y="206" class="body">shared evidence heuristics.</text>
+    <rect x="578" y="140" width="306" height="96" rx="6" fill="#ffffff" stroke="#f59e0b"/>
+    <text x="594" y="163" class="heading">Tavily MCP</text>
+    <text x="594" y="186" class="body">Streamable HTTP; list and invoke</text>
+    <text x="594" y="206" class="body">the configured Tavily tool.</text>
+  </g>
+  <g id="inference-support">
+    <rect x="1040" y="100" width="540" height="155" rx="6" fill="#f5f3ff" stroke="#7c3aed"/>
+    <text x="1058" y="123" class="label" style="fill:#6d28d9">INFERENCE SUBSYSTEM</text>
+    <text x="1058" y="149" class="heading">Configured provider candidates</text>
+    <text x="1058" y="172" class="body">Per-task health probes and selection precede synthesis.</text>
+    <text x="1058" y="193" class="body">Eligible failures can advance to the next candidate.</text>
+    <text x="1058" y="214" class="body">Telemetry delivery is best-effort and non-fatal.</text>
+    <text x="1058" y="236" class="mono">See historical v0.4 inference-flow diagram for detail.</text>
+  </g>
+  <path d="M 597 255 V 320" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4" fill="none" marker-end="url(#support-arrow)"/>
+  <path d="M 1287 255 V 320" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4" fill="none" marker-end="url(#support-arrow)"/>
+
+  <text x="32" y="301" class="label">PRIMARY PATH  /  LEFT TO RIGHT  /  SUCCESSFUL TASK</text>
+  <g id="step-1">
+    <rect x="32" y="320" width="210" height="180" rx="6" fill="#f0f9ff" stroke="#0284c7"/>
+    <circle cx="54" cy="344" r="13" fill="#0284c7"/><text x="54" y="349" text-anchor="middle" class="number">1</text>
+    <text x="48" y="381" class="heading">Consume task</text>
+    <text x="48" y="407" class="body">Pop one task from the</text>
+    <text x="48" y="427" class="body">configured Redis queue.</text>
+    <text x="48" y="475" class="mono">task_id + prompt</text>
+  </g>
+  <g id="step-2">
+    <rect x="262" y="320" width="210" height="180" rx="6" fill="#ecfdf5" stroke="#059669"/>
+    <circle cx="284" cy="344" r="13" fill="#047857"/><text x="284" y="349" text-anchor="middle" class="number">2</text>
+    <text x="278" y="381" class="heading">Publish working</text>
+    <text x="278" y="407" class="body">Update agent state and</text>
+    <text x="278" y="427" class="body">append an event.</text>
+    <text x="278" y="475" class="mono">before execution</text>
+  </g>
+  <g id="step-3">
+    <rect x="492" y="320" width="210" height="180" rx="6" fill="#fffbeb" stroke="#d97706"/>
+    <circle cx="514" cy="344" r="13" fill="#b45309"/><text x="514" y="349" text-anchor="middle" class="number">3</text>
+    <text x="508" y="381" class="heading">Run executor</text>
+    <text x="508" y="407" class="body">Use the one configured</text>
+    <text x="508" y="427" class="body">ResearchExecutor.</text>
+    <text x="508" y="475" class="mono">execute(task)</text>
+  </g>
+  <g id="step-4">
+    <rect x="722" y="320" width="210" height="180" rx="6" fill="#fffbeb" stroke="#d97706"/>
+    <circle cx="744" cy="344" r="13" fill="#b45309"/><text x="744" y="349" text-anchor="middle" class="number">4</text>
+    <text x="738" y="381" class="heading">Receive output</text>
+    <text x="738" y="407" class="body">Tavily paths filter and</text>
+    <text x="738" y="427" class="body">rank using heuristics;</text>
+    <text x="738" y="447" class="body">sources may be empty.</text>
+    <text x="738" y="475" class="mono">ResearchResult</text>
+  </g>
+  <g id="step-5">
+    <rect x="952" y="320" width="210" height="180" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+    <circle cx="974" cy="344" r="13" fill="#475569"/><text x="974" y="349" text-anchor="middle" class="number">5</text>
+    <text x="968" y="381" class="heading">Prepare input</text>
+    <text x="968" y="407" class="body">Pass task prompt and</text>
+    <text x="968" y="427" class="body">executor output as</text>
+    <text x="968" y="447" class="body">synthesis input.</text>
+    <text x="968" y="475" class="mono">question + evidence</text>
+  </g>
+  <g id="step-6">
+    <rect x="1182" y="320" width="210" height="180" rx="6" fill="#f5f3ff" stroke="#7c3aed"/>
+    <circle cx="1204" cy="344" r="13" fill="#6d28d9"/><text x="1204" y="349" text-anchor="middle" class="number">6</text>
+    <text x="1198" y="381" class="heading">Synthesize</text>
+    <text x="1198" y="407" class="body">Try selected inference;</text>
+    <text x="1198" y="427" class="body">fall back only on</text>
+    <text x="1198" y="447" class="body">eligible failures.</text>
+    <text x="1198" y="475" class="mono">provider candidates</text>
+  </g>
+  <g id="step-7">
+    <rect x="1412" y="320" width="210" height="180" rx="6" fill="#f0f9ff" stroke="#0284c7"/>
+    <circle cx="1434" cy="344" r="13" fill="#0284c7"/><text x="1434" y="349" text-anchor="middle" class="number">7</text>
+    <text x="1428" y="381" class="heading">Save result</text>
+    <text x="1428" y="407" class="body">Store completed output</text>
+    <text x="1428" y="427" class="body">and available sources</text>
+    <text x="1428" y="447" class="body">in Redis.</text>
+    <text x="1428" y="475" class="mono">task.result:{id}</text>
+  </g>
+  <g id="step-8">
+    <rect x="1642" y="320" width="210" height="180" rx="6" fill="#ecfdf5" stroke="#059669"/>
+    <circle cx="1664" cy="344" r="13" fill="#047857"/><text x="1664" y="349" text-anchor="middle" class="number">8</text>
+    <text x="1658" y="381" class="heading">Publish idle</text>
+    <text x="1658" y="407" class="body">After result storage,</text>
+    <text x="1658" y="427" class="body">publish task completion</text>
+    <text x="1658" y="447" class="body">and return to the queue.</text>
+    <text x="1658" y="475" class="mono">success only</text>
+  </g>
+  <g stroke="#475569" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+    <path d="M 242 410 H 262"/><path d="M 472 410 H 492"/><path d="M 702 410 H 722"/>
+    <path d="M 932 410 H 952"/><path d="M 1162 410 H 1182"/><path d="M 1392 410 H 1412"/>
+    <path d="M 1622 410 H 1642"/>
+  </g>
+
+  <g stroke="#be123c" stroke-width="1.5" fill="none" marker-end="url(#error-arrow)">
+    <path d="M 597 500 V 545"/><path d="M 1287 500 V 545"/><path d="M 1517 500 V 545"/><path d="M 1747 500 V 545"/>
+  </g>
+  <g id="retrieval-failure">
+    <rect x="492" y="545" width="440" height="130" rx="6" fill="#fff1f2" stroke="#e11d48"/>
+    <text x="510" y="569" class="label" style="fill:#be123c">EXECUTOR FAILURE</text>
+    <text x="510" y="595" class="body">Failure stops this task; no alternate executor is tried.</text>
+    <text x="510" y="617" class="body">Empty or filtered Tavily results are output, not failure.</text>
+    <text x="510" y="648" class="mono">Log; attempt error, not idle</text>
+  </g>
+  <g id="processing-failure">
+    <rect x="1182" y="545" width="670" height="130" rx="6" fill="#fff1f2" stroke="#e11d48"/>
+    <text x="1200" y="569" class="label" style="fill:#be123c">INFERENCE OR RESULT / STATE PUBLICATION FAILURE</text>
+    <text x="1200" y="595" class="body">Exhausted or non-eligible inference failure, save failure, or idle publication failure:</text>
+    <text x="1200" y="617" class="body">log and attempt to publish error; no immediate idle. A result may already be saved.</text>
+    <text x="1200" y="648" class="mono">No failed task result is written by this handler</text>
+  </g>
+
+  <line x1="32" y1="704" x2="1852" y2="704" stroke="#cbd5e1"/>
+  <text x="32" y="732" class="note">The fixed Tavily MCP executor is separate from generic governed-tool coordination, which is not wired into normal agent task flow.</text>
+  <text x="32" y="755" class="note">Tavily heuristics are not verification of truth; inference fallback is not retrieval fallback. The stub does not retrieve sources.</text>
+  <text x="32" y="778" class="note">The loop continues after a handled task error if error publication succeeds. Initial working publication is outside that handler.</text>
+</svg>
