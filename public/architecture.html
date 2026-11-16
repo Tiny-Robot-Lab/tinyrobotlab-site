@@ -76,29 +76,29 @@
         <div class="section-header">
           <h2 class="section-title">End-to-End System Topology</h2>
           <p class="section-lead">
-            The full-system diagram follows the browser console through the Orchestrator, Redis, Worker, Research Agent, and external services.
+            This v0.5.0 diagram follows a simplified runtime path from the browser console through the Orchestrator and Redis to the Worker or Research Agent and configured external services. The Research Agent's fixed Tavily MCP integration is separate from the shared generic tool foundations, which are not wired into normal agent task flows.
           </p>
         </div>
 
         <figure class="architecture-frame">
-          <img src="assets/architecture.svg" alt="Tiny Agent Lab system architecture showing the console, Orchestrator, Redis, General Worker, and Research Agent" class="architecture-img" width="1200" height="960" loading="lazy">
+          <img src="assets/architecture.svg" alt="Tiny Agent Lab v0.5.0 runtime topology and separate shared tool foundations" class="architecture-img" width="1200" height="1090" loading="lazy">
           <figcaption class="arch-caption">
-            <span>Figure 1: Full system architecture — Capability routing, Redis queues &amp; streams, and grounded inference.</span>
+            <span>Figure 1: Released v0.5.0 system — Capability routing, Redis transport, configured providers, and separate tool foundations.</span>
             <a href="assets/architecture.svg" target="_blank" rel="noopener noreferrer">Open full vector SVG diagram ↗</a>
           </figcaption>
         </figure>
 
         <div class="section-header architecture-subsection-header">
-          <h2 class="section-title">Inference Provider Selection &amp; Fallback Flow</h2>
+          <h2 class="section-title">Historical v0.4.0 Inference Provider Selection &amp; Fallback Flow</h2>
           <p class="section-lead">
-            This diagram shows per-task health probing, candidate ordering, provider invocation, eligible fallback, and operational telemetry.
+            This historical subsystem diagram records the v0.4.0 inference flow, not the current full system. It shows per-task health probing, selection, invocation, fallback, and telemetry; event delivery was best-effort.
           </p>
         </div>
 
         <figure class="architecture-frame">
           <img src="assets/inference-provider-flow.svg" alt="Tiny Agent Lab Inference Provider Selection, Fallback, and Telemetry Flow Diagram" class="architecture-img" width="1440" height="840" loading="lazy">
           <figcaption class="arch-caption">
-            <span>Figure 2: Subsystem architecture — The autonomous agent inference resilience loop (v0.4.0).</span>
+            <span>Figure 2: Historical v0.4.0 subsystem — Tiny Agent Lab's inference resilience loop.</span>
             <a href="assets/inference-provider-flow.svg" target="_blank" rel="noopener noreferrer">Open full vector SVG diagram ↗</a>
           </figcaption>
         </figure>
@@ -172,7 +172,7 @@ packages/
           <h3>Ports in use</h3>
           <div class="architecture-table-wrap">
             <table class="architecture-table">
-              <caption>Application boundaries, concrete adapters, and repository evidence</caption>
+              <caption>Selected boundaries, concrete adapters, and repository evidence</caption>
               <thead>
                 <tr>
                   <th scope="col">Port</th>
@@ -191,6 +191,10 @@ packages/
                 <tr>
                   <th scope="row"><code>InferenceProvider</code></th>
                   <td>Research Agent's <code>StubInferenceProvider</code>, <code>CloudflareInferenceProvider</code>, and <code>GeminiInferenceProvider</code> share the <code>InferenceProvider</code> port. <code>tests/test_inference_interchangeability.py</code> checks substitution; <code>tests/test_provider_fallback_traversal.py</code> covers fallback.</td>
+                </tr>
+                <tr>
+                  <th scope="row"><code>ToolExecutionBoundary</code> / <code>ToolSecurityAuditSink</code></th>
+                  <td>The shared coordinator requires authorization and audit delivery before invoking a tool through its execution boundary. These generic tool foundations are not wired into normal Worker or Research Agent task flows; the fixed Tavily MCP <code>ResearchExecutor</code> is separate.</td>
                 </tr>
               </tbody>
             </table>
