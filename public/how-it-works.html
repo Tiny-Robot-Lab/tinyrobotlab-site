@@ -67,7 +67,7 @@
       <header class="page-header">
         <h1>How Tiny Robot Works</h1>
         <p class="page-lead">
-          Tiny Agent Lab is the current project within Tiny Robot Lab. For capability-routed work, it assesses the task, checks for a capable ready agent, and dispatches to the agent's advertised target. An optional advisor can resolve ambiguous assessments; research and inference add their own evaluation and fallback stages.
+          Tiny Agent Lab is the current project within Tiny Robot Lab. For capability-routed work, it assesses the task, checks for a capable ready agent, and dispatches to the agent's advertised target. Research and inference add their own evaluation and fallback stages.
         </p>
       </header>
 
@@ -90,7 +90,7 @@
           <li>
             <div>
               <h3>Capability assessment</h3>
-              <p>The deterministic router proposes <code>general</code> or <code>research</code> and records its assessment signals. If the assessment is ambiguous, a configured advisor may recommend the final capability.</p>
+              <p>The deterministic router proposes <code>general</code> or <code>research</code> and records its assessment signals. The application use case accepts an advisor for ambiguous assessments, but the normal v0.5.0 application composition does not wire one.</p>
             </div>
           </li>
           <li>
