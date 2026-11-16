@@ -104,6 +104,21 @@
         </figure>
 
         <div class="section-header architecture-subsection-header">
+          <h2 class="section-title">Tool Governance Flow</h2>
+          <p class="section-lead">
+            I traced the generic tool-governance foundation implemented in released v0.5.0, from discovery to one bounded invocation. It is not wired into normal agent task flows; the fixed Tavily MCP ResearchExecutor remains separate.
+          </p>
+        </div>
+
+        <figure class="architecture-frame">
+          <img src="assets/tool-governance-flow.svg" alt="Released v0.5.0 generic tool governance: category discovery, deterministic selection, validation and bounded correction, exact-tool authorization, required audit, and at most one invocation, with no-tool and failure outcomes; separate from normal agent flows and the fixed Tavily MCP ResearchExecutor" class="architecture-img" width="2010" height="800" loading="lazy">
+          <figcaption class="arch-caption">
+            <span>Figure 3: Released v0.5.0 foundation — Not wired into normal agent task flows; the fixed Tavily MCP ResearchExecutor is separate.</span>
+            <a href="assets/tool-governance-flow.svg" target="_blank" rel="noopener noreferrer">Open full vector SVG diagram ↗</a>
+          </figcaption>
+        </figure>
+
+        <div class="section-header architecture-subsection-header">
           <h2 class="section-title">Historical v0.4.0 Inference Provider Selection &amp; Fallback Flow</h2>
           <p class="section-lead">
             This historical subsystem diagram records the v0.4.0 inference flow, not the current full system. It shows per-task health probing, selection, invocation, fallback, and telemetry; event delivery was best-effort.
@@ -113,7 +128,7 @@
         <figure class="architecture-frame">
           <img src="assets/inference-provider-flow.svg" alt="Tiny Agent Lab Inference Provider Selection, Fallback, and Telemetry Flow Diagram" class="architecture-img" width="1440" height="840" loading="lazy">
           <figcaption class="arch-caption">
-            <span>Figure 3: Historical v0.4.0 subsystem — Tiny Agent Lab's inference resilience loop.</span>
+            <span>Figure 4: Historical v0.4.0 subsystem — Tiny Agent Lab's inference resilience loop.</span>
             <a href="assets/inference-provider-flow.svg" target="_blank" rel="noopener noreferrer">Open full vector SVG diagram ↗</a>
           </figcaption>
         </figure>

@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2010 800" width="2010" height="800" role="img" aria-labelledby="title description">
+  <title id="title">One tool: discovery, governance and invocation</title>
+  <desc id="description">The released v0.5.0 generic foundation discovers tools by category, selects and validates one proposal, optionally corrects arguments once, authorizes and audits the exact tool, then invokes at most one tool and returns a result. It is not wired into normal agent task flows; the fixed Tavily MCP ResearchExecutor is separate.</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .title { font-size: 24px; font-weight: 700; }
+      .subtitle { font-size: 15px; fill: #475569; }
+      .label { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; fill: #475569; }
+      .heading { font-size: 16px; font-weight: 700; }
+      .body { font-size: 14px; fill: #334155; }
+      .mono { font-family: "SFMono-Regular", Consolas, monospace; font-size: 12px; fill: #475569; }
+      .number { font-size: 14px; font-weight: 700; fill: #ffffff; }
+      .note { font-size: 14px; fill: #334155; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 Z" fill="#475569"/>
+    </marker>
+    <marker id="branch-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 Z" fill="#be123c"/>
+    </marker>
+    <marker id="support-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="2010" height="800" fill="#ffffff"/>
+  <text x="32" y="42" class="title">One tool: discovery, governance &amp; invocation</text>
+  <text x="32" y="68" class="subtitle">Tiny Agent Lab v0.5.0  ·  Generic foundation  ·  One bounded invocation</text>
+  <text x="1976" y="42" class="mono" text-anchor="end">RELEASE c8e6a57</text>
+
+  <rect x="32" y="100" width="1944" height="104" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="50" y="124" class="label">COMPOSITION BOUNDARY</text>
+  <text x="50" y="150" class="heading">Implemented foundation, not a normal task flow</text>
+  <text x="50" y="174" class="body">The generic coordinator is not wired into normal Worker or Research Agent execution.</text>
+  <text x="1010" y="150" class="heading">Separate integration</text>
+  <text x="1010" y="174" class="body">The fixed Tavily MCP ResearchExecutor is a separate path, not this generic runtime.</text>
+
+  <text x="32" y="237" class="label">PRIMARY PATH  /  LEFT TO RIGHT  /  CORRECTION ONLY IF NEEDED</text>
+  <g>
+    <rect x="32" y="255" width="200" height="178" rx="6" fill="#f0f9ff" stroke="#0284c7"/>
+    <circle cx="54" cy="279" r="13" fill="#0284c7"/><text x="54" y="284" text-anchor="middle" class="number">1</text>
+    <text x="48" y="316" class="heading">Receive context</text>
+    <text x="48" y="342" class="body">Goal, discovery scope,</text>
+    <text x="48" y="362" class="body">and trusted identity</text>
+    <text x="48" y="382" class="body">and permission scope</text>
+    <text x="48" y="402" class="body">are supplied by host.</text>
+  </g>
+  <g>
+    <rect x="250" y="255" width="200" height="178" rx="6" fill="#f5f3ff" stroke="#7c3aed"/>
+    <circle cx="272" cy="279" r="13" fill="#7c3aed"/><text x="272" y="284" text-anchor="middle" class="number">2</text>
+    <text x="266" y="316" class="heading">Discover</text>
+    <text x="266" y="342" class="body">Query the live local</text>
+    <text x="266" y="362" class="body">registry by category.</text>
+    <text x="266" y="388" class="body">Empty scope: all tools.</text>
+    <text x="266" y="410" class="mono">visibility ≠ permission</text>
+  </g>
+  <g>
+    <rect x="468" y="255" width="200" height="178" rx="6" fill="#f5f3ff" stroke="#7c3aed"/>
+    <circle cx="490" cy="279" r="13" fill="#7c3aed"/><text x="490" y="284" text-anchor="middle" class="number">3</text>
+    <text x="484" y="316" class="heading">Select</text>
+    <text x="484" y="342" class="body">Deterministic lexical</text>
+    <text x="484" y="362" class="body">match picks a unique</text>
+    <text x="484" y="382" class="body">best tool or no tool.</text>
+    <text x="484" y="410" class="mono">name + arguments</text>
+  </g>
+  <g>
+    <rect x="686" y="255" width="200" height="178" rx="6" fill="#fffbeb" stroke="#d97706"/>
+    <circle cx="708" cy="279" r="13" fill="#b45309"/><text x="708" y="284" text-anchor="middle" class="number">4</text>
+    <text x="702" y="316" class="heading">Validate</text>
+    <text x="702" y="342" class="body">Identity must uniquely</text>
+    <text x="702" y="362" class="body">match the catalog;</text>
+    <text x="702" y="382" class="body">check arguments against</text>
+    <text x="702" y="402" class="body">the bounded schema.</text>
+  </g>
+  <g>
+    <rect x="904" y="255" width="200" height="178" rx="6" fill="#fffbeb" stroke="#d97706"/>
+    <circle cx="926" cy="279" r="13" fill="#b45309"/><text x="926" y="284" text-anchor="middle" class="number">5</text>
+    <text x="920" y="316" class="heading">Correct if needed</text>
+    <text x="920" y="342" class="body">At most one argument</text>
+    <text x="920" y="362" class="body">correction, then validate</text>
+    <text x="920" y="382" class="body">again. The tool identity</text>
+    <text x="920" y="402" class="body">must not change.</text>
+  </g>
+  <g>
+    <rect x="1122" y="255" width="200" height="178" rx="6" fill="#fffbeb" stroke="#d97706"/>
+    <circle cx="1144" cy="279" r="13" fill="#b45309"/><text x="1144" y="284" text-anchor="middle" class="number">6</text>
+    <text x="1138" y="316" class="heading">Authorize</text>
+    <text x="1138" y="342" class="body">Trusted scope grants</text>
+    <text x="1138" y="362" class="body">the exact tool and</text>
+    <text x="1138" y="382" class="body">operation; otherwise</text>
+    <text x="1138" y="402" class="body">deny by default.</text>
+  </g>
+  <g>
+    <rect x="1340" y="255" width="200" height="178" rx="6" fill="#fff1f2" stroke="#e11d48"/>
+    <circle cx="1362" cy="279" r="13" fill="#be123c"/><text x="1362" y="284" text-anchor="middle" class="number">7</text>
+    <text x="1356" y="316" class="heading">Deliver audit</text>
+    <text x="1356" y="342" class="body">Send the required</text>
+    <text x="1356" y="362" class="body">authorization record</text>
+    <text x="1356" y="382" class="body">for allow or deny.</text>
+    <text x="1356" y="410" class="mono">before invocation</text>
+  </g>
+  <g>
+    <rect x="1558" y="255" width="200" height="178" rx="6" fill="#ecfdf5" stroke="#059669"/>
+    <circle cx="1580" cy="279" r="13" fill="#047857"/><text x="1580" y="284" text-anchor="middle" class="number">8</text>
+    <text x="1574" y="316" class="heading">Invoke</text>
+    <text x="1574" y="342" class="body">Only an allowed,</text>
+    <text x="1574" y="362" class="body">audited request crosses</text>
+    <text x="1574" y="382" class="body">the execution boundary.</text>
+    <text x="1574" y="410" class="mono">at most one call</text>
+  </g>
+  <g>
+    <rect x="1776" y="255" width="200" height="178" rx="6" fill="#ecfdf5" stroke="#059669"/>
+    <circle cx="1798" cy="279" r="13" fill="#047857"/><text x="1798" y="284" text-anchor="middle" class="number">9</text>
+    <text x="1792" y="316" class="heading">Return result</text>
+    <text x="1792" y="342" class="body">A successful tool result</text>
+    <text x="1792" y="362" class="body">is ready for a later</text>
+    <text x="1792" y="382" class="body">continuation; none is</text>
+    <text x="1792" y="402" class="body">automatically run here.</text>
+  </g>
+  <g stroke="#475569" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+    <path d="M 232 344 H 250"/><path d="M 450 344 H 468"/><path d="M 668 344 H 686"/>
+    <path d="M 886 344 H 904"/><path d="M 1104 344 H 1122"/><path d="M 1322 344 H 1340"/>
+    <path d="M 1540 344 H 1558"/><path d="M 1758 344 H 1776"/>
+  </g>
+
+  <g stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#support-arrow)">
+    <path d="M 350 433 V 482"/><path d="M 568 433 V 482"/>
+    <path d="M 1876 433 V 482"/>
+  </g>
+  <g stroke="#be123c" stroke-width="1.5" fill="none" marker-end="url(#branch-arrow)">
+    <path d="M 786 433 V 482"/><path d="M 1004 433 V 482"/>
+    <path d="M 1440 433 V 482"/><path d="M 1658 433 V 482"/>
+  </g>
+  <rect x="250" y="482" width="418" height="132" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="268" y="506" class="label">NO TOOL NEEDED</text>
+  <text x="268" y="533" class="body">Empty catalog, no match, or tied best match:</text>
+  <text x="268" y="554" class="body">a legitimate no-tool outcome, without invocation.</text>
+  <text x="268" y="585" class="mono">not a failure</text>
+
+  <rect x="686" y="482" width="418" height="132" rx="6" fill="#fff1f2" stroke="#e11d48"/>
+  <text x="704" y="506" class="label" style="fill:#be123c">PRE-EXECUTION FAILURE</text>
+  <text x="704" y="533" class="body">Invalid identity stops immediately; invalid arguments</text>
+  <text x="704" y="554" class="body">get at most one correction. Still invalid: failure.</text>
+  <text x="704" y="585" class="mono">no invocation</text>
+
+  <rect x="1122" y="482" width="418" height="132" rx="6" fill="#fff1f2" stroke="#e11d48"/>
+  <text x="1140" y="506" class="label" style="fill:#be123c">DENIAL OR AUDIT FAILURE</text>
+  <text x="1140" y="533" class="body">Deny or failed required audit delivery blocks execution.</text>
+  <text x="1140" y="554" class="body">Audit failure does not change the allow / deny decision.</text>
+  <text x="1140" y="585" class="mono">no invocation</text>
+
+  <rect x="1558" y="482" width="418" height="132" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="1576" y="506" class="label">INVOCATION OUTCOMES</text>
+  <text x="1576" y="533" class="body">Execution failure returns a controlled failure result.</text>
+  <text x="1576" y="554" class="body">Optional terminal telemetry is best-effort: failure</text>
+  <text x="1576" y="575" class="body">does not invalidate the invocation or result.</text>
+
+  <line x1="32" y1="646" x2="1976" y2="646" stroke="#cbd5e1"/>
+  <text x="32" y="675" class="note">Registry and discovery are process-local. Public tool metadata is JSON-compatible; authentication and credentials are separate.</text>
+  <text x="32" y="700" class="note">Categories describe discovery, not agent-capability permissions. Exact-tool authorization is not OS, process, or network sandboxing.</text>
+  <text x="32" y="725" class="note">MCP tools can be adapted to the neutral tool contract; the MCP client handles the protocol boundary, separately from governance.</text>
+  <text x="32" y="750" class="note">No chains, parallel tool calls, or automatic continuation are depicted.</text>
+</svg>
