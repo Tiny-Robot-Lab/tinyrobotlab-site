@@ -182,25 +182,25 @@ packages/
             <li>
               <div>
                 <h3>Domain</h3>
-                <p><code>orchestrator/domain/</code> contains capability, routing, and selection rules. <code>research_agent/domain/</code> contains evidence evaluation and research result models.</p>
+                <p>The domain layer holds the rules and models. In <code>orchestrator/domain/</code>, those include capability, routing, and selection rules. In <code>research_agent/domain/</code>, they include evidence evaluation and research result models.</p>
               </div>
             </li>
             <li>
               <div>
                 <h3>Application</h3>
-                <p><code>orchestrator/application/</code> coordinates submission and queries; <code>research_agent/application/</code> coordinates research processing. Their <code>ports.py</code> modules declare the collaborators those workflows need.</p>
+                <p>The application layer coordinates workflows. <code>orchestrator/application/</code> handles submission and queries; <code>research_agent/application/</code> coordinates research processing. Their <code>ports.py</code> modules declare the collaborators those workflows need.</p>
               </div>
             </li>
             <li>
               <div>
                 <h3>Presentation</h3>
-                <p><code>orchestrator/presentation/api.py</code> exposes the HTTP API and serves the browser console.</p>
+                <p>The presentation layer handles the HTTP interface. <code>orchestrator/presentation/api.py</code> exposes the API and serves the browser console.</p>
               </div>
             </li>
             <li>
               <div>
                 <h3>Infrastructure</h3>
-                <p><code>orchestrator/infrastructure/redis_adapter.py</code> implements Redis access. Research and Worker infrastructure packages hold provider, retrieval, and runtime adapters.</p>
+                <p>The infrastructure layer connects workflows to external services and runtime mechanisms. <code>orchestrator/infrastructure/redis_adapter.py</code> implements Redis access. Research and Worker infrastructure packages hold provider, retrieval, and runtime adapters.</p>
               </div>
             </li>
           </ol>
@@ -209,7 +209,7 @@ packages/
         <aside class="architecture-boundary-note">
           <h3>Where dependencies meet</h3>
           <p>
-            Application ports are Python <code>Protocol</code>s. The Orchestrator's <code>create_app()</code> composes those ports with <code>RedisGateway</code>; tests also supply fakes and substitute inference providers. This shows dependency inversion at the seams, not a static rule that checks every import direction.
+            Application ports are Python <code>Protocol</code>s. I keep integrations behind these seams so workflows can be exercised with substitutes rather than always depending on external services. The Orchestrator's <code>create_app()</code> composes those ports with <code>RedisGateway</code>; tests also supply fakes and substitute inference providers. This shows dependency inversion at the seams, not a static rule that checks every import direction.
           </p>
         </aside>
 
