@@ -89,6 +89,21 @@
         </figure>
 
         <div class="section-header architecture-subsection-header">
+          <h2 class="section-title">Task Lifecycle &amp; Routing</h2>
+          <p class="section-lead">
+            I traced one task through the released v0.5.0 runtime, from capability assessment and dispatch to agent processing and console observation. The path shows successful execution; rejection and telemetry branch off alongside it.
+          </p>
+        </div>
+
+        <figure class="architecture-frame">
+          <img src="assets/task-lifecycle-routing.svg" alt="Tiny Agent Lab v0.5.0 task lifecycle from submission and deterministic routing through agent processing, result storage, and console observation, with supporting and failure flows" class="architecture-img" width="1792" height="720" loading="lazy">
+          <figcaption class="arch-caption">
+            <span>Figure 2: Released v0.5.0 — One task's routing and execution, with supporting flows and limits.</span>
+            <a href="assets/task-lifecycle-routing.svg" target="_blank" rel="noopener noreferrer">Open full vector SVG diagram ↗</a>
+          </figcaption>
+        </figure>
+
+        <div class="section-header architecture-subsection-header">
           <h2 class="section-title">Historical v0.4.0 Inference Provider Selection &amp; Fallback Flow</h2>
           <p class="section-lead">
             This historical subsystem diagram records the v0.4.0 inference flow, not the current full system. It shows per-task health probing, selection, invocation, fallback, and telemetry; event delivery was best-effort.
@@ -98,7 +113,7 @@
         <figure class="architecture-frame">
           <img src="assets/inference-provider-flow.svg" alt="Tiny Agent Lab Inference Provider Selection, Fallback, and Telemetry Flow Diagram" class="architecture-img" width="1440" height="840" loading="lazy">
           <figcaption class="arch-caption">
-            <span>Figure 2: Historical v0.4.0 subsystem — Tiny Agent Lab's inference resilience loop.</span>
+            <span>Figure 3: Historical v0.4.0 subsystem — Tiny Agent Lab's inference resilience loop.</span>
             <a href="assets/inference-provider-flow.svg" target="_blank" rel="noopener noreferrer">Open full vector SVG diagram ↗</a>
           </figcaption>
         </figure>

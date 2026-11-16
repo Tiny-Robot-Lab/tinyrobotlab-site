@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 720" width="1792" height="720" role="img" aria-labelledby="title description">
+  <title id="title">Tiny Agent Lab v0.5.0 task lifecycle and routing</title>
+  <desc id="description">A successful task moves from HTTP submission through capability assessment, candidate selection, dispatch, agent processing, result storage, and console observation. Registration, research retrieval, inference, and operational events support the path.</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .title { font-size: 24px; font-weight: 700; }
+      .subtitle { font-size: 15px; fill: #475569; }
+      .label { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; }
+      .heading { font-size: 16px; font-weight: 700; }
+      .body { font-size: 14px; fill: #334155; }
+      .mono { font-family: "SFMono-Regular", Consolas, monospace; font-size: 12px; fill: #475569; }
+      .number { font-size: 14px; font-weight: 700; fill: #ffffff; }
+      .note { font-size: 14px; fill: #334155; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 Z" fill="#475569"/>
+    </marker>
+    <marker id="support-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 Z" fill="#64748b"/>
+    </marker>
+    <marker id="error-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 Z" fill="#be123c"/>
+    </marker>
+  </defs>
+  <rect width="1792" height="720" fill="#ffffff"/>
+  <text x="32" y="42" class="title">One task: lifecycle &amp; routing</text>
+  <text x="32" y="68" class="subtitle">Tiny Agent Lab v0.5.0  ·  Normal composed runtime  ·  Successful execution path</text>
+  <text x="1760" y="42" class="mono" text-anchor="end">RELEASE c8e6a57</text>
+
+  <!-- Supporting inputs -->
+  <rect x="390" y="105" width="300" height="104" rx="6" fill="#f0f9ff" stroke="#0284c7"/>
+  <text x="408" y="128" class="label" fill="#0369a1" style="fill:#0369a1">DISCOVERY INPUT</text>
+  <text x="408" y="151" class="heading">Agent presence</text>
+  <text x="408" y="173" class="body">Registration, state and heartbeat</text>
+  <text x="408" y="193" class="body">supply capability and liveness.</text>
+  <path d="M 499 209 V 260" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4" fill="none" marker-end="url(#support-arrow)"/>
+
+  <rect x="1024" y="105" width="330" height="104" rx="6" fill="#f5f3ff" stroke="#7c3aed"/>
+  <text x="1042" y="128" class="label" style="fill:#6d28d9">PROCESSING SUPPORT</text>
+  <text x="1042" y="151" class="heading">Configured inference</text>
+  <text x="1042" y="173" class="body">Provider selection and fallback.</text>
+  <text x="1042" y="193" class="body">See historical v0.4 inference diagram.</text>
+  <path d="M 1208 209 V 260" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4" fill="none" marker-end="url(#support-arrow)"/>
+
+  <rect x="1400" y="105" width="326" height="104" rx="6" fill="#fffbeb" stroke="#d97706"/>
+  <text x="1418" y="128" class="label" style="fill:#b45309">RESEARCH ONLY</text>
+  <text x="1418" y="151" class="heading">Configured retrieval</text>
+  <text x="1418" y="173" class="body">Stub, direct Tavily, or Tavily MCP.</text>
+  <text x="1418" y="193" class="body">Tavily is not required for every task.</text>
+  <path d="M 1450 209 V 227 H 1310 V 260" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4" fill="none" marker-end="url(#support-arrow)"/>
+
+  <text x="32" y="244" class="label" style="fill:#475569">PRIMARY PATH  /  LEFT TO RIGHT</text>
+
+  <!-- Main path -->
+  <g>
+    <rect x="32" y="260" width="174" height="174" rx="6" fill="#f0f9ff" stroke="#0284c7"/>
+    <circle cx="54" cy="284" r="13" fill="#0284c7"/><text x="54" y="289" text-anchor="middle" class="number">1</text>
+    <text x="48" y="321" class="heading">Submit task</text>
+    <text x="48" y="347" class="body">Console sends</text>
+    <text x="48" y="368" class="mono">POST /api/tasks</text>
+    <text x="48" y="393" class="body">with a prompt and</text>
+    <text x="48" y="413" class="body">optional capability.</text>
+  </g>
+  <g>
+    <rect x="222" y="260" width="174" height="174" rx="6" fill="#f5f3ff" stroke="#7c3aed"/>
+    <circle cx="244" cy="284" r="13" fill="#7c3aed"/><text x="244" y="289" text-anchor="middle" class="number">2</text>
+    <text x="238" y="321" class="heading">Assess</text>
+    <text x="238" y="347" class="body">Validate prompt;</text>
+    <text x="238" y="367" class="body">assess capability or</text>
+    <text x="238" y="387" class="body">use explicit override.</text>
+    <text x="238" y="413" class="mono">SubmitTask</text>
+  </g>
+  <g>
+    <rect x="412" y="260" width="174" height="174" rx="6" fill="#f5f3ff" stroke="#7c3aed"/>
+    <circle cx="434" cy="284" r="13" fill="#7c3aed"/><text x="434" y="289" text-anchor="middle" class="number">3</text>
+    <text x="428" y="321" class="heading">Find candidates</text>
+    <text x="428" y="347" class="body">Match capability;</text>
+    <text x="428" y="367" class="body">require READY and</text>
+    <text x="428" y="387" class="body">a fresh heartbeat.</text>
+    <text x="428" y="413" class="mono">registry + liveness</text>
+  </g>
+  <g>
+    <rect x="602" y="260" width="174" height="174" rx="6" fill="#f5f3ff" stroke="#7c3aed"/>
+    <circle cx="624" cy="284" r="13" fill="#7c3aed"/><text x="624" y="289" text-anchor="middle" class="number">4</text>
+    <text x="618" y="321" class="heading">Select agent</text>
+    <text x="618" y="347" class="body">Choose the lowest</text>
+    <text x="618" y="367" class="body">eligible agent ID.</text>
+    <text x="618" y="393" class="body">Use its advertised</text>
+    <text x="618" y="413" class="body">dispatch target.</text>
+  </g>
+  <g>
+    <rect x="792" y="260" width="174" height="174" rx="6" fill="#fff1f2" stroke="#e11d48"/>
+    <circle cx="814" cy="284" r="13" fill="#be123c"/><text x="814" y="289" text-anchor="middle" class="number">5</text>
+    <text x="808" y="321" class="heading">Record &amp; enqueue</text>
+    <text x="808" y="347" class="body">Save routing; set</text>
+    <text x="808" y="367" class="body">pending; enqueue</text>
+    <text x="808" y="387" class="body">to target in Redis.</text>
+    <text x="808" y="413" class="mono">HTTP 202 accepted</text>
+  </g>
+  <g>
+    <rect x="982" y="260" width="174" height="174" rx="6" fill="#ecfdf5" stroke="#059669"/>
+    <circle cx="1004" cy="284" r="13" fill="#047857"/><text x="1004" y="289" text-anchor="middle" class="number">6</text>
+    <text x="998" y="321" class="heading">Consume</text>
+    <text x="998" y="347" class="body">Worker or Research</text>
+    <text x="998" y="367" class="body">Agent pops from its</text>
+    <text x="998" y="387" class="body">configured queue.</text>
+    <text x="998" y="413" class="mono">working event</text>
+  </g>
+  <g>
+    <rect x="1172" y="260" width="174" height="174" rx="6" fill="#ecfdf5" stroke="#059669"/>
+    <circle cx="1194" cy="284" r="13" fill="#047857"/><text x="1194" y="289" text-anchor="middle" class="number">7</text>
+    <text x="1188" y="321" class="heading">Process</text>
+    <text x="1188" y="347" class="body">General: generate.</text>
+    <text x="1188" y="373" class="body">Research: retrieve,</text>
+    <text x="1188" y="393" class="body">then synthesize.</text>
+  </g>
+  <g>
+    <rect x="1362" y="260" width="174" height="174" rx="6" fill="#fff1f2" stroke="#e11d48"/>
+    <circle cx="1384" cy="284" r="13" fill="#be123c"/><text x="1384" y="289" text-anchor="middle" class="number">8</text>
+    <text x="1378" y="321" class="heading">Save result</text>
+    <text x="1378" y="347" class="body">Persist result in</text>
+    <text x="1378" y="367" class="body">Redis; publish idle</text>
+    <text x="1378" y="387" class="body">after success.</text>
+    <text x="1378" y="413" class="mono">task.result:{id}</text>
+  </g>
+  <g>
+    <rect x="1552" y="260" width="174" height="174" rx="6" fill="#f0f9ff" stroke="#0284c7"/>
+    <circle cx="1574" cy="284" r="13" fill="#0284c7"/><text x="1574" y="289" text-anchor="middle" class="number">9</text>
+    <text x="1568" y="321" class="heading">Read in console</text>
+    <text x="1568" y="347" class="body">Fetch routing; poll</text>
+    <text x="1568" y="367" class="body">result and observe</text>
+    <text x="1568" y="387" class="body">events / agent state.</text>
+    <text x="1568" y="413" class="mono">polling starts early</text>
+  </g>
+  <g stroke="#475569" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+    <path d="M 206 347 H 222"/><path d="M 396 347 H 412"/><path d="M 586 347 H 602"/>
+    <path d="M 776 347 H 792"/><path d="M 966 347 H 982"/><path d="M 1156 347 H 1172"/>
+    <path d="M 1346 347 H 1362"/><path d="M 1536 347 H 1552"/>
+  </g>
+
+  <!-- Side branches -->
+  <path d="M 499 434 V 495" stroke="#be123c" stroke-width="1.5" fill="none" marker-end="url(#error-arrow)"/>
+  <rect x="412" y="495" width="364" height="108" rx="6" fill="#fff1f2" stroke="#e11d48"/>
+  <text x="430" y="518" class="label" style="fill:#be123c">NO ELIGIBLE CANDIDATE</text>
+  <text x="430" y="543" class="body">Record rejection and emit an error event;</text>
+  <text x="430" y="564" class="body">HTTP 503, without dispatch.</text>
+  <text x="430" y="586" class="mono">capability_unavailable</text>
+
+  <path d="M 1259 434 V 495" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4" fill="none" marker-end="url(#support-arrow)"/>
+  <path d="M 1449 434 V 495" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 4" fill="none" marker-end="url(#support-arrow)"/>
+  <rect x="1030" y="495" width="696" height="108" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="1048" y="518" class="label" style="fill:#475569">OPERATIONAL OBSERVATION</text>
+  <text x="1048" y="543" class="body">Execution and result stages emit state events; inference attempts and fallback emit telemetry.</text>
+  <text x="1048" y="564" class="body">Inference telemetry delivery is best-effort; the console can retrieve task telemetry.</text>
+  <text x="1048" y="586" class="mono">agent.events  ·  /api/events  ·  /api/tasks/{id}/telemetry</text>
+
+  <line x1="32" y1="632" x2="1726" y2="632" stroke="#cbd5e1"/>
+  <text x="32" y="660" class="note">Queue target is not an exclusive claim on the selected agent: consumers may share a queue.</text>
+  <text x="32" y="684" class="note">Redis also stores routing, pending status and results. On failure, Worker returns to idle; Research Agent reports error.</text>
+</svg>
